@@ -1,4 +1,4 @@
-export function evaluate(value) {
+export default function evaluate(value) {
   if (value == null) {
     return [];
   }
