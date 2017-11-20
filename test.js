@@ -4,15 +4,15 @@ const {evaluate} = require('./dist/index');
 describe('evaluate()', function() {
   describe('plain string', function() {
     it('converts string', function() {
-      const result = evaluate('alert');
+      const result = evaluate('x');
 
-      assert.deepStrictEqual(result, ['alert']);
+      assert.deepStrictEqual(result, ['x']);
     });
 
     it('converts string with spaces', function () {
-      const result = evaluate('alert warn');
+      const result = evaluate('x y');
 
-      assert.deepStrictEqual(result, ['alert', 'warn']);
+      assert.deepStrictEqual(result, ['x', 'y']);
     });
 
     it('converts undefined', function () {
@@ -25,11 +25,11 @@ describe('evaluate()', function() {
   describe('object value', function() {
     it('converts object', function () {
       const result = evaluate({
-        alert: false,
-        warn: true
+        x: false,
+        y: true
       });
 
-      assert.deepStrictEqual(result, ['warn']);
+      assert.deepStrictEqual(result, ['y']);
     });
 
     it('converts null', function () {
@@ -40,31 +40,31 @@ describe('evaluate()', function() {
 
     it('converts object with spaces in property name', function() {
       const result = evaluate({
-        'alert success': true,
-        warn: false
+        'x y': true,
+        z: false
       });
 
-      assert.deepStrictEqual(result, ['alert', 'success']);
+      assert.deepStrictEqual(result, ['x', 'y']);
     });
   });
 
   describe('array value', function() {
     it('converts array containing strings', function() {
-      const result = evaluate(['alert', 'warn']);
+      const result = evaluate(['x', 'y']);
 
-      assert.deepStrictEqual(result, ['alert', 'warn']);
+      assert.deepStrictEqual(result, ['x', 'y']);
     });
 
     it('converts array containing strings with spaces', function () {
-      const result = evaluate(['alert', 'warn success']);
+      const result = evaluate(['x', 'y z']);
 
-      assert.deepStrictEqual(result, ['alert', 'warn', 'success']);
+      assert.deepStrictEqual(result, ['x', 'y', 'z']);
     });
 
     it('converts array containing empty strings', function () {
-      const result = evaluate(['', 'alert', '']);
+      const result = evaluate(['', 'x', '']);
 
-      assert.deepStrictEqual(result, ['alert']);
+      assert.deepStrictEqual(result, ['x']);
     });
   });
 
