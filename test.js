@@ -99,14 +99,4 @@ describe('evaluate()', function() {
       assert.deepStrictEqual(result, ['x']);
     });
   });
-
-  it('converts a mixed array of strings and objects', function() {
-    const object = {
-      alert: true,
-      warn: false
-    };
-    const result = evaluate(['success', object]);
-
-    assert.deepStrictEqual(result, ['success', 'alert']);
-  });
 });
