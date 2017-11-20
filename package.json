@@ -1,7 +1,7 @@
 {
   "name": "class-binding",
   "version": "1.0.0",
-  "description": "",
+  "description": "Evaluate a value with same semantics as v-bind:class in Vue",
   "main": "dist/index.js",
   "module": "es/index.js",
   "scripts": {
@@ -11,11 +11,17 @@
     "build": "npm run build:es && npm run build:commonjs",
     "build:es": "BABEL_ENV=es babel index.js --out-dir es",
     "build:commonjs": "BABEL_ENV=commonjs babel index.js --out-dir dist",
-    "clean": "rimraf dist es"
+    "clean": "rimraf dist es",
+    "prepublishOnly": "npm test && npm run build"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "keywords": ["vue", "class", "binding"],
+  "author": "Paul Salaets <psalaets@gmail.com>",
+  "homepage": "https://github.com/psalaets/class-binding",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/psalaets/class-binding.git"
+  },
+  "license": "MIT",
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-preset-env": "^1.6.1",
