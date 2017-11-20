@@ -14,6 +14,10 @@
     "clean": "rimraf dist es",
     "prepublishOnly": "npm test && npm run build"
   },
+  "files": [
+    "dist",
+    "es"
+  ],
   "keywords": ["vue", "class", "binding"],
   "author": "Paul Salaets <psalaets@gmail.com>",
   "homepage": "https://github.com/psalaets/class-binding",
