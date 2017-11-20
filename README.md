@@ -24,7 +24,9 @@ evaluateClassBinding(input); // => ['button', 'warn']
 
 ## API
 
-`import evaluateClassBinding from 'class-binding';`
+```js
+import evaluateClassBinding from 'class-binding';
+```
 
 ### evaluateClassBinding(input)
 
