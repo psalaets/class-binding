@@ -1,5 +1,5 @@
 const assert = require('assert');
-const evaluate = require('./dist/index');
+const evaluate = require('./dist/index').default;
 
 describe('evaluate()', function() {
   describe('plain string', function() {
