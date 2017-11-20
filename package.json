@@ -2,14 +2,24 @@
   "name": "class-binding",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "dist/index.js",
+  "module": "es/index.js",
   "scripts": {
-    "test": "mocha test.js"
+    "pretest": "npm run build:commonjs",
+    "test": "mocha test.js",
+    "prebuild": "npm run clean",
+    "build": "npm run build:es && npm run build:commonjs",
+    "build:es": "BABEL_ENV=es babel index.js --out-dir es",
+    "build:commonjs": "BABEL_ENV=commonjs babel index.js --out-dir dist",
+    "clean": "rimraf dist es"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "mocha": "^4.0.1"
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "mocha": "^4.0.1",
+    "rimraf": "^2.6.2"
   }
 }
