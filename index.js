@@ -1,6 +1,3 @@
-const isObject = value => value && typeof value === 'object' && !Array.isArray(value);
-const isString = value => typeof value === 'string';
-
 export function evaluate(value) {
   if (value == null) {
     return [];
@@ -26,8 +23,8 @@ export function evaluate(value) {
   return evalString(value);
 }
 
-function evalString(value) {
-  return String(value).split(/\s+/)
+function isObject(value) {
+  return value && typeof value === 'object' && !Array.isArray(value);
 }
 
 function evalObject(value) {
@@ -37,6 +34,10 @@ function evalObject(value) {
     }
     return array;
   }, []);
+}
+
+function evalString(value) {
+  return String(value).split(/\s+/);
 }
 
 function isNotEmpty(value) {
